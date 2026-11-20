@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fffafd;
+    color: #5c4d66;
+    font-family: "DIN", "Yu Gothic", "YuGothic", sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+#app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    #canvas-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+
+        canvas {
+            display: block;
+        }
+    }
+
+    #ui-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 20;
+        pointer-events: none;
+
+        .guide-box {
+            position: absolute;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+
+            &.is-active {
+                opacity: 1;
+            }
+
+            .en {
+                font-size: 1.4rem;
+                letter-spacing: 0.25em;
+                font-weight: 500;
+                color: #d96b98;
+                margin-bottom: 8px;
+                text-shadow: 0 2px 14px rgba(244, 162, 198, 0.45);
+            }
+
+            .ja {
+                font-size: 0.95rem;
+                letter-spacing: 0.14em;
+                color: #7d6b88;
+            }
+        }
+    }
+
+    #system-status {
+        position: absolute;
+        bottom: 12px;
+        left: 16px;
+        z-index: 40;
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        color: rgba(125, 107, 136, 0.55);
+        pointer-events: none;
+    }
+}

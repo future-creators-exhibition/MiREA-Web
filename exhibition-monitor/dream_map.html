@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MiREA - 3D Dream World</title>
+        <link rel="stylesheet" href="scss/dream_map.css" />
+        <!-- Three.js Import Map -->
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <main id="world-app">
+            <!-- Three.js 3Dキャンバス -->
+            <div id="canvas-container"></div>
+
+            <!-- 左上：ワールド情報HUD -->
+            <header class="hud-top-left">
+                <div class="glass-card">
+                    <p class="en">DREAM NETWORK WORLD</p>
+                    <h1 class="title">MiREA</h1>
+                    <p id="camera-mode-label" class="mode-badge">
+                        EXPLORE MODE（指でドラッグ・ピンチ操作）
+                    </p>
+                </div>
+            </header>
+
+            <!-- 右上：ハンバーガーメニューボタン（体験者モード用） -->
+            <button
+                id="btn-menu"
+                class="hamburger-btn"
+                type="button"
+                aria-label="メニューを開く"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- 下部：テスト操作パネル（塔の扉から雲を出現させる動作確認用） -->
+            <div class="hud-bottom-controls">
+                <button id="btn-spawn-pink" class="action-btn" type="button">
+                    <span class="dot is-pink"></span>
+                    <span>塔の扉から雲を放つ（ピンク系テスト）</span>
+                </button>
+                <button id="btn-spawn-blue" class="action-btn" type="button">
+                    <span class="dot is-blue"></span>
+                    <span>塔の扉から雲を放つ（ブルー系テスト）</span>
+                </button>
+                <button
+                    id="btn-toggle-camera"
+                    class="action-btn is-sub"
+                    type="button"
+                >
+                    <span>視点切替：探索 / 塔の定点カメラ</span>
+                </button>
+            </div>
+
+            <!-- ハンバーガーメニュー内ドロワー（持ち物・記憶ポケット） -->
+            <aside id="pocket-drawer" class="pocket-drawer">
+                <div class="drawer-header">
+                    <div>
+                        <p class="en">DREAM POCKET</p>
+                        <h2>集めた夢の記憶</h2>
+                    </div>
+                    <button
+                        id="btn-close-drawer"
+                        class="close-btn"
+                        type="button"
+                    >
+                        ×
+                    </button>
+                </div>
+                <p class="drawer-desc">
+                    あなたの雲がワールドを旅して出会った、他の人の夢の記憶です。
+                </p>
+                <div id="pocket-list" class="pocket-list">
+                    <p class="empty-msg">
+                        まだ記憶がありません。雲を放って旅に出しましょう。
+                    </p>
+                </div>
+            </aside>
+        </main>
+
+        <script type="module" src="js/dream_map.js"></script>
+    </body>
+</html>
